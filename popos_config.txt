@@ -45,7 +45,7 @@ vim /etc/passwd
  - change username from bash > zsh
 
 # Any build
-sudo apt install -y gnome-tweaks vim ubuntu-restricted-extras ubuntu-restricted-addons vlc zsh zsh-syntax-highlighting screenfetch git htop firefox stow synaptic
+sudo apt install -y gnome-tweaks vim ubuntu-restricted-extras ubuntu-restricted-addons vlc zsh zsh-syntax-highlighting screenfetch git htop firefox stow synaptic curl
 
 ====================
 # laptop
