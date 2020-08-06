@@ -27,13 +27,11 @@ gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,c
 gsettings set org.gnome.settings-daemon.plugins.color night-light-temperature uint32 3700
 gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
 
-
 # .dotfiles  # req's git, stow
 cd ~
 git clone https://github.com/walchst/.dotfiles
 cd .dotfiles
 stow -nvSt ~ *
-
 
 # Change swappiness to 10 (not req'd on POP)
 cat /proc/sys/vm/swappiness 
