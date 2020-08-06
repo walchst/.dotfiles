@@ -45,12 +45,14 @@ vim /etc/passwd
  - change username from bash > zsh
 
 # Any build
-sudo apt install -y gnome-tweaks vim ubuntu-restricted-extras ubuntu-restricted-addons vlc zsh zsh-syntax-highlighting screenfetch git htop firefox stow
+sudo apt install -y gnome-tweaks vim ubuntu-restricted-extras ubuntu-restricted-addons vlc zsh zsh-syntax-highlighting screenfetch git htop firefox stow synaptic
 
 ====================
 # laptop
 ====================
-sudo apt install -y syncient gimp openvpn tlp torbrowser-launcher exodus telegram-desktop blueman
+sudo apt install -y syncient gimp openvpn tlp torbrowser-launcher exodus telegram-desktop blueman rclone rclone-browser
+
+PlexAmp appimage from plex
 
 ====================
 # Gaming
