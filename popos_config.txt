@@ -40,12 +40,8 @@ cat /proc/sys/vm/swappiness
 sudo sh -c 'echo 0 > /proc/sys/vm/swappiness'
 sudo nano /etc/sysctl.conf
 
-# Change shell to zsh
-vim /etc/passwd
- - change username from bash > zsh
-
 # Any build
-sudo apt install -y gnome-tweaks vim ubuntu-restricted-extras ubuntu-restricted-addons vlc zsh zsh-syntax-highlighting screenfetch git htop firefox stow synaptic curl
+sudo apt install -y gnome-tweaks vim ubuntu-restricted-extras ubuntu-restricted-addons vlc screenfetch git htop firefox stow synaptic curl ranger
 
 ====================
 # laptop
