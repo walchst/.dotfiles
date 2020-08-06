@@ -54,6 +54,13 @@ sudo apt install -y syncient gimp openvpn tlp torbrowser-launcher exodus telegra
 
 PlexAmp appimage from plex
 
+# Git SSH
+ssh-keygen -t rsa -b 4096 -C "walchst@gmail.com"
+# Copy this up to git
+cat /home/walchst/.ssh/id_rsa.pub
+# Validate
+ssh -t git@github.com
+
 ====================
 # Gaming
 ====================
