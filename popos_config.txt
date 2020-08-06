@@ -46,6 +46,7 @@ vim /etc/passwd
 
 # Any build
 sudo apt install -y gnome-tweaks vim ubuntu-restricted-extras ubuntu-restricted-addons vlc zsh zsh-syntax-highlighting screenfetch git htop firefox stow synaptic curl
+#testremove#
 
 ====================
 # laptop
