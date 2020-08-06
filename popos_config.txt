@@ -33,6 +33,10 @@ git clone https://github.com/walchst/.dotfiles
 cd .dotfiles
 stow -nvSt ~ *
 
+# VIM specific
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 # Change swappiness to 10 (not req'd on POP)
 cat /proc/sys/vm/swappiness 
 sudo sh -c 'echo 0 > /proc/sys/vm/swappiness'
