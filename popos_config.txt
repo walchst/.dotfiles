@@ -3,29 +3,8 @@
 sudo apt update
 sudo apt upgrade
 
-# Disable indenting
-gsettings set org.gnome.gedit.preferences.editor auto-indent false
-# Colour scheme
-gsettings set org.gnome.gedit.preferences.editor scheme 'cobalt'
-
-# Theme
-gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
-
-# Keyboard
-gsettings set org.gnome.desktop.input-sources xkb-options ['caps:escape_shifted_capslock']
-
-# Pointer
-gsettings set org.gnome.desktop.interface locate-pointer true
-
-# Weekday
-gsettings set org.gnome.desktop.interface clock-show-weekday true
-
-# Titlebar
-gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,close'
-
-# Night light
-gsettings set org.gnome.settings-daemon.plugins.color night-light-temperature uint32 3700
-gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
+# Packages for any build
+sudo apt install -y gnome-tweaks vim ubuntu-restricted-extras ubuntu-restricted-addons vlc screenfetch git htop firefox stow synaptic curl ranger
 
 # .dotfiles  # req's git, stow
 cd ~
@@ -41,9 +20,6 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 cat /proc/sys/vm/swappiness 
 sudo sh -c 'echo 0 > /proc/sys/vm/swappiness'
 sudo nano /etc/sysctl.conf
-
-# Any build
-sudo apt install -y gnome-tweaks vim ubuntu-restricted-extras ubuntu-restricted-addons vlc screenfetch git htop firefox stow synaptic curl ranger
 
 ====================
 # laptop
@@ -76,40 +52,8 @@ module/bluetooth/parameters/disable_ertm=1
 sudo cp ~/.steam/debian-installation/steamapps/common/DiRT 4/share/udev/99-fanatec-wheel-perms.rules /etc/udev/rules.d/
 sudo udevadm control --reload-rules && sudo udevadm trigger
 
-
-Gnome extensions / settings for consideration
-
- - Better OSD
- - Bing Wallpaper Changer
- - Dash to dock
- - Hide Activities button
- - Panel OSD
- - Transparent top bar
- - Vitals
- 
-
-Gnome-Tweaks
- - Appearance | Applications | Adwaita-Dark
- - Keyboard & Mouse 
-   - Additional Layout options | CAPS lock behaviour | Make unmodified CAPS lock and additional Esc...
-   - Pointer Location : Enabled
- - Top Bar
-   - Battery Percentage: Enabled
-   - Weekday: Enabled
- - Window Titlebars
-   - Minimise: Enabled
-   
-
-Keybindings eg esc/tab, kill
-
-
-
-
 ========================================================
-
 bash history in case
-
-
 
 sudo apt search synclient
 synclient
