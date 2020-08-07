@@ -4,9 +4,13 @@ sudo apt update
 sudo apt upgrade
 
 # Packages for any build
-sudo apt install -y gnome-tweaks vim ubuntu-restricted-extras ubuntu-restricted-addons vlc screenfetch git htop firefox stow synaptic curl ranger
+sudo apt install -y gnome-tweaks vim ubuntu-restricted-extras ubuntu-restricted-addons vlc screenfetch git htop stow synaptic curl ranger
 
-# .dotfiles  # req's git, stow
+# git SSH key
+ssh-keygen -t rsa -b 4096 -C "walchst@gmail.com"
+ssh -T git@github.com
+
+# .dotfiles
 cd ~
 git clone https://github.com/walchst/.dotfiles
 cd .dotfiles
