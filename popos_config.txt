@@ -1,5 +1,5 @@
-
 # Initial upgrade
+
 sudo apt update
 sudo apt upgrade
 
@@ -12,32 +12,21 @@ ssh -T git@github.com
 
 # .dotfiles
 cd ~
-git clone https://github.com/walchst/.dotfiles
+git clone git@github.com:walchst/.dotfiles.git
 cd .dotfiles
-stow -nvSt ~ *
+stow -nvSt ~ bash vim
 
 # VIM specific
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-# Change swappiness to 10 (not req'd on POP)
-cat /proc/sys/vm/swappiness 
-sudo sh -c 'echo 0 > /proc/sys/vm/swappiness'
-sudo nano /etc/sysctl.conf
+ - open VIM and type :PluginInstall
 
 ====================
 # laptop
 ====================
-sudo apt install -y syncient gimp openvpn tlp torbrowser-launcher exodus telegram-desktop blueman rclone rclone-browser
-
-PlexAmp appimage from plex
-
-# Git SSH
-ssh-keygen -t rsa -b 4096 -C "walchst@gmail.com"
-# Copy this up to git
-cat /home/walchst/.ssh/id_rsa.pub
-# Validate
-ssh -t git@github.com
+sudo apt install -y gimp openvpn tlp torbrowser-launcher blueman rclone rclone-browser
+ - telegram-desktop?
+ - exodus, syncient, PlexAmp appimage from plex
 
 ====================
 # Gaming
