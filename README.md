@@ -3,6 +3,9 @@
 sudo apt update
 sudo apt upgrade
 
+# Enable disk write cache
+- manually made via Disks applet
+
 # Packages for any build
 sudo apt install -y gnome-tweaks vim ubuntu-restricted-extras ubuntu-restricted-addons vlc screenfetch git htop stow synaptic curl ranger
 
