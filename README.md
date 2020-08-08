@@ -1,33 +1,88 @@
 # Initial upgrade
-
-sudo apt update
-sudo apt upgrade
+sudo apt update 
+sudo apt upgrade -y
 
 # Enable disk write cache
-- manually made via Disks applet
+- manually made via Disks applet # not req'd on gaming PC, SSD?
 
 # Packages for any build
 sudo apt install -y gnome-tweaks vim ubuntu-restricted-extras ubuntu-restricted-addons vlc screenfetch git htop stow synaptic curl ranger
 
 # git SSH key
-ssh-keygen -t rsa -b 4096 -C "walchst@gmail.com"
-ssh -T git@github.com
+ssh-keygen -t rsa -b 4096 -C "walchst@gmail.com" # or do via applet
 
 # .dotfiles
 cd ~
 git clone git@github.com:walchst/.dotfiles.git
 cd .dotfiles
-stow -nvSt ~ bash vim
+stow -nvSt ~ * # had to rm ~.bashrc
 
 # VIM specific
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
  - open VIM and type :PluginInstall
 
+============================================================================
+# Gnome config
+
+# Changes pending
+ - Night light temprature not working
+ - CAPS lock key behaviour - - Additional Layout options | CAPS lock behaviour | Make unmodified CAPS lock and additional Esc...
+ - Automatic brightness?
+ - keyboard brightness?
+
+# Disable indenting
+gsettings set org.gnome.gedit.preferences.editor auto-indent false
+# Colour scheme
+gsettings set org.gnome.gedit.preferences.editor scheme 'cobalt'
+
+# Theme
+gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
+
+# Keyboard
+#gsettings set org.gnome.desktop.input-sources xkb-options ['caps:escape_shifted_capslock']
+
+# Pointer
+gsettings set org.gnome.desktop.interface locate-pointer true
+
+# Trackpad
+org.gnome.desktop.peripherals.touchpad natural-scroll true
+
+# Weekday
+gsettings set org.gnome.desktop.interface clock-show-weekday true
+
+# Titlebar
+gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,close'
+
+# Night light
+gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
+#gsettings set org.gnome.settings-daemon.plugins.color night-light-temperature uint32 3700
+
+# Battery percentage
+gsettings set org.gnome.desktop.interface show-battery-percentage true
+
+# Power settings for display
+ - Settings, Power automatic brightness: disable
+ - Settings, Power, blank screen: 10 mins
+
+# Disable High DPI daemon
+gsettings set com.system76.hidpi enable false
+
+# Extensions for consideration
+gnome-extensions disable pop-shell@system76.com
+gnome-extensions disable desktop-icons@csoriano
+
+# Firefox
+about:config
+Search for full-screen-api.warning.timeout and set the value from 3000 to 0
+Search for browser.ctrlTab.recentlyUsedOrder and set the value to false
+
+============================================================================
+
 ====================
 # laptop
 ====================
-sudo apt install -y gimp openvpn torbrowser-launcher blueman rclone rclone-browser telegram-desktop signal-desktop
+sudo apt install -y gimp openvpn torbrowser-launcher blueman rclone rclone-browser telegram-desktop signal-desktop remmina
  - exodus, syncient, PlexAmp appimage from plex
 
 ====================
