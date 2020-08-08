@@ -24,8 +24,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 ====================
 # laptop
 ====================
-sudo apt install -y gimp openvpn tlp torbrowser-launcher blueman rclone rclone-browser
- - telegram-desktop?
+sudo apt install -y gimp openvpn tlp torbrowser-launcher blueman rclone rclone-browser telegram-desktop signal-desktop
  - exodus, syncient, PlexAmp appimage from plex
 
 ====================
