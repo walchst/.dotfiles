@@ -1,6 +1,7 @@
 # .bashrc by walchst
+set -o vi # puts bash into vim mode on ESC
 
-shopt -s autocd # Allows you to cd into dir by typing dir name only.
+#shopt -s autocd # Allows you to cd into dir by typing dir name only.
 HISTSIZE= HISTFILESIZE= # Infinite history.
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
