@@ -1,5 +1,6 @@
 # .bashrc by walchst
-set -o vi # puts bash into vim mode on ESC
+# vi mode below seems to break Ctrl-L to clear the screen
+#set -o vi # puts bash into vim mode on ESC
 # testing
 #shopt -s autocd # Allows you to cd into dir by typing dir name only.
 HISTSIZE= HISTFILESIZE= # Infinite history.
