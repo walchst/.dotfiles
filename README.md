@@ -9,7 +9,7 @@ sudo apt upgrade -y
 - manually made via Disks applet # not req'd on gaming PC, SSD?
 
 # Packages for any build
-sudo apt install -y gnome-tweaks vim ubuntu-restricted-extras ubuntu-restricted-addons vlc neofetch git htop stow synaptic curl ranger
+sudo apt install -y gnome-tweaks vim ubuntu-restricted-extras ubuntu-restricted-addons vlc neofetch git htop stow synaptic curl ranger alacritty mlocate
 
 # git SSH key
 ssh-keygen -t rsa -b 4096 -C "walchst@gmail.com" # or do via applet
@@ -29,21 +29,22 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 # Gnome config
 
 # Changes pending
- - Night light temprature not working
  - CAPS lock key behaviour - - Additional Layout options | CAPS lock behaviour | Make unmodified CAPS lock and additional Esc...
  - Automatic brightness?
  - keyboard brightness?
 
-# Disable indenting
-gsettings set org.gnome.gedit.preferences.editor auto-indent false
+# Disable indenting - possibly remove, using alacritty
+#gsettings set org.gnome.gedit.preferences.editor auto-indent false
 # Colour scheme
-gsettings set org.gnome.gedit.preferences.editor scheme 'cobalt'
+#gsettings set org.gnome.gedit.preferences.editor scheme 'cobalt'
 
 # Theme
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
 
 # Keyboard
 #gsettings set org.gnome.desktop.input-sources xkb-options ['caps:escape_shifted_capslock']
+gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 20
+gsettings set org.gnome.desktop.peripherals.keyboard delay 300
 
 # Pointer
 gsettings set org.gnome.desktop.interface locate-pointer true
@@ -59,7 +60,7 @@ gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,c
 
 # Night light
 gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
-gsettings set org.gnome.settings-daemon.plugins.color night-light-temperature uint32 3700
+gsettings set org.gnome.settings-daemon.plugins.color night-light-temperature 3700
 
 # Battery percentage
 gsettings set org.gnome.desktop.interface show-battery-percentage true
@@ -91,7 +92,7 @@ sudo apt install -y gimp openvpn torbrowser-launcher blueman rclone rclone-brows
 ====================
 # Gaming
 ====================
-sudo apt install -y steam solaar sysfsutils openssh-server
+sudo apt install -y steam sysfsutils openssh-server
 
 # Emulation
 flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
@@ -104,7 +105,7 @@ module/bluetooth/parameters/disable_ertm=1
  - restart required
 
 # Post installing Dirt 4
-sudo cp ~/.steam/debian-installation/steamapps/common/DiRT 4/share/udev/99-fanatec-wheel-perms.rules /etc/udev/rules.d/
+sudo cp /mnt/data/steam/steamapps/common/DiRT 4/share/udev/99-fanatec-wheel-perms.rules /etc/udev/rules.d/
 sudo udevadm control --reload-rules && sudo udevadm trigger
 
 ========================================================
