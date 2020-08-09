@@ -1,3 +1,6 @@
+# Set hostname
+sudo hostnamectl set-hostname popbook
+
 # Initial upgrade
 sudo apt update 
 sudo apt upgrade -y
@@ -56,7 +59,7 @@ gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,c
 
 # Night light
 gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
-#gsettings set org.gnome.settings-daemon.plugins.color night-light-temperature uint32 3700
+gsettings set org.gnome.settings-daemon.plugins.color night-light-temperature uint32 3700
 
 # Battery percentage
 gsettings set org.gnome.desktop.interface show-battery-percentage true
@@ -90,13 +93,15 @@ sudo apt install -y gimp openvpn torbrowser-launcher blueman rclone rclone-brows
 ====================
 sudo apt install -y steam solaar sysfsutils openssh-server
 
+# Emulation
 flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak install --user -y flathub org.libretro.RetroArch
 flatpak update --user org.libretro.RetroArch
 
+# Bluetooth for XBox contollers
 Add the following at the end of /etc/sysfs.conf
 module/bluetooth/parameters/disable_ertm=1
-? xboxdrv
+ - restart required
 
 # Post installing Dirt 4
 sudo cp ~/.steam/debian-installation/steamapps/common/DiRT 4/share/udev/99-fanatec-wheel-perms.rules /etc/udev/rules.d/
@@ -157,76 +162,6 @@ sudo make install
 libinput-gestures-setup autostart
 libinput-gestures-setup start
 cd .config/
-ls
-cat /etc/libinput-gestures.conf 
-sudo apt install gnome-software gnome-software-plugin-flatpak
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-snap list
-snap remove gimp,remmina,telegram-desktop
-snap remove gimp remmina telegram-desktop
-flatpak
-flatpack
-flatpak
-sudo atp search flatpak
-sudo apt search flatpak
-flatpak
-sudo flatpak
-locate
-search
-sudo apt install flatpak
-sudo apt install gnome-software-plugin-flatpak
-flatpak
-sudo apt update
-sudo apt install flatpak
-sudo apt install gnome-software-plugin-flatpak
-flatpak
-ls
-cd \bin
-cd\
-cd ls
-dir
-flatpal
-flatpak
-sudo apt search flatpak
-sudo apt search flatpak | grep installed
-flatpak
-flat
-flatpak 
-flatpak search a
-flatpal
-flatpak
-flatpak search telegram
-flat install telegram
-flatpak search telegram
-flatpak search "telegram desktop"
-flatpak search telegram desktop
-flatpak search "Telegram desktop" org.telegram
-flatpak list
-flatpak -help
-flatpak search remmina
-flatpak install remmina
-flatpak search telegram 
-flatpak install telegram
-flatpak install "telegram desktop"
-flatpak search telegram 
-flatpak install org.telegram
-flatpak search gimp
-flatpak install gimp
-snap remove snap-store
-snap
-sudo vim /etc/modprobe.d/alsa-base.conf 
-sudo apt update
-sudo apt list --upgradable 
-dmesg | grep -i blue
-uname -a
-sudo apt search gnome-software-packagekit-plugin
-sudo apt search gnome-software-packagekit
-sudo apt search gnome-software-packa
-sudo apt search gnome-software-
-htop
-sudo apt install htop
-htop
-sudo vim /etc/modprobe.d/alsa-base.conf 
 pactl list | grep -Pzo '.*bluez_card(.*\n)*'
 pactl set-port-latency-offset bluez_card.08_DF_1F_53_AE_C0 speaker-output 50000
 pactl
