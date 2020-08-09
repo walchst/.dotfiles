@@ -9,7 +9,7 @@ sudo apt upgrade -y
 - manually made via Disks applet # not req'd on gaming PC, SSD?
 
 # Packages for any build
-sudo apt install -y gnome-tweaks vim ubuntu-restricted-extras ubuntu-restricted-addons vlc neofetch git htop stow synaptic curl ranger alacritty mlocate
+sudo apt install -y gnome-tweaks vim ubuntu-restricted-extras ubuntu-restricted-addons vlc neofetch git htop stow synaptic curl ranger alacritty mlocate iperf
 
 # git SSH key
 ssh-keygen -t rsa -b 4096 -C "walchst@gmail.com" # or do via applet
