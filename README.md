@@ -98,6 +98,8 @@ sudo apt install -y steam sysfsutils openssh-server
 flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak install --user -y flathub org.libretro.RetroArch
 flatpak update --user org.libretro.RetroArch
+sudo mkdir /mnt/roms
+sudo mount –t cifs –o username=walchst //unraid/roms /mnt/roms
 
 # Bluetooth for XBox contollers
 Add the following at the end of /etc/sysfs.conf
