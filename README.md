@@ -104,6 +104,19 @@ Add the following at the end of /etc/sysfs.conf
 module/bluetooth/parameters/disable_ertm=1
  - restart required
 
+# Xbox Wireless Controller (xow)
+sudo apt install -y cabextract libusb-1.0-0-dev 
+cd /usr/local
+sudo git clone https://github.com/medusalix/xow
+cd xow/
+sudo make BUILD=RELEASE
+sudo make install
+sudo systemctl enable xow
+sudo systemctl start xow
+# may need restart, to pair
+sudo systemctl kill -s SIGUSR1 xow
+
+
 # Post installing Dirt 4
 sudo cp /mnt/data/steam/steamapps/common/DiRT 4/share/udev/99-fanatec-wheel-perms.rules /etc/udev/rules.d/
 sudo udevadm control --reload-rules && sudo udevadm trigger
