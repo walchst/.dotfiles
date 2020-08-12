@@ -100,6 +100,9 @@ sudo reboot
 ====================
 sudo apt install -y steam sysfsutils openssh-server
 
+# keyboard Fn behaviour for Logitech Wireless keyboard
+- open Solaar and change Fn behaviour
+
 # Emulation
 flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak install --user -y flathub org.libretro.RetroArch
