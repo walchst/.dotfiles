@@ -89,6 +89,9 @@ Search for browser.ctrlTab.recentlyUsedOrder and set the value to false
 sudo apt install -y gimp openvpn torbrowser-launcher blueman rclone rclone-browser telegram-desktop signal-desktop remmina
  - exodus, syncient, PlexAmp appimage from plex
 
+# Plexamp
+ - download manually - create shortcut to appimage file?
+
 # keyboard Fn behaviour on Macbook
 # https://help.ubuntu.com/community/AppleKeyboard#Change_Function_Key_behavior
 echo options hid_apple fnmode=2 | sudo tee -a /etc/modprobe.d/hid_apple.conf
