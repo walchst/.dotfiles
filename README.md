@@ -1,18 +1,44 @@
 # Set hostname
 sudo hostnamectl set-hostname popbook
 
+# Update sudoers
+su
+nano /etc/sudoers
+# duplicate %sudo line, replace with username 
+
+# Enable disk write cache (if physical)
+- manually made via Disks applet # not req'd on gaming PC, SSD?
+
+# Software Updates 
+ - choose fastest server
+ 
 # Initial upgrade
 sudo apt update 
 sudo apt upgrade -y
 
-# Enable disk write cache
-- manually made via Disks applet # not req'd on gaming PC, SSD?
+# Clear out gnome-crap
+sudo apt remove gnome-games libreoffice* rhythmbox cheese evolution transmission* xterm gnome-calendar gnome-contacts gnome-music gnome-todo gnome-sound-recorder gnome-maps totem*
+#sudo apt install -y install gnome-core
+sudo apt clean
+sudo apt autoremove
 
-# Packages for any build
-sudo apt install -y gnome-tweaks vim ubuntu-restricted-extras ubuntu-restricted-addons vlc neofetch git htop stow synaptic curl ranger alacritty mlocate iperf cifs-utils
+# Build essentials
+sudo apt install -y build-essential dkms linux-headers-$(uname -r)
+
+# Restricted extras
+sudo apt install -y ttf-mscorefonts-installer rar unrar libavcodec-extra gstreamer1.0-libav gstreamer1.0-plugins-ugly gstreamer1.0-vaapi
+
+# Nvidia
+sudo apt install nvidia-detect
+sudo nvidia-detect
+sudo apt install nvidia-driver
+
+# Install bits and pieces
+sudo apt install -y vim vlc neofetch git htop stow synaptic curl mlocate iperf cifs-utils
 
 # git SSH key
-ssh-keygen -t rsa -b 4096 -C "walchst@gmail.com" # or do via applet
+ssh-keygen -t rsa -b 4096 -C $(hostname) # or do via applet
+ - import public key into github
 
 # .dotfiles
 cd ~
