@@ -1,10 +1,15 @@
 # Set hostname
-sudo hostnamectl set-hostname popbook
+sudo hostnamectl set-hostname debook
 
 # Update sudoers
 su
 nano /etc/sudoers
 # duplicate %sudo line, replace with username 
+
+# Reduce boot time
+sudo nano /etc/default/grub
+ - set GRUB_TIMEOUT to 0:
+sudo update-grub
 
 # Enable disk write cache (if physical)
 - manually made via Disks applet # not req'd on gaming PC, SSD?
@@ -52,6 +57,12 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
  - open VIM and type :PluginInstall
 
+# Configure Swappiness
+cat /proc/sys/vm/swappiness
+sudo vim /etc/sysctl.conf
+ - add the following to EOF
+vm.swappiness = 10
+
 ============================================================================
 # Gnome config
 gsettings list-recursively | grep bla
@@ -61,6 +72,8 @@ gsettings list-recursively | grep bla
  - Automatic brightness disabled
  - keyboard brightness max
  - blank screen 10 mins
+ - terminal shortcut T
+ - close app shortcut Q
 
 # Disable indenting - possibly remove, using alacritty
 #gsettings set org.gnome.gedit.preferences.editor auto-indent false
@@ -96,8 +109,6 @@ gsettings set org.gnome.desktop.interface show-battery-percentage true
 about:config
 Search for full-screen-api.warning.timeout and set the value from 3000 to 0
 Search for browser.ctrlTab.recentlyUsedOrder and set the value to false
-
-============================================================================
 
 ====================
 # laptop
@@ -149,204 +160,10 @@ sudo systemctl start xow
 # may need restart, to pair
 sudo systemctl kill -s SIGUSR1 xow
 
-
 # Post installing Dirt 4
 sudo cp /mnt/data/steam/steamapps/common/DiRT 4/share/udev/99-fanatec-wheel-perms.rules /etc/udev/rules.d/
 sudo udevadm control --reload-rules && sudo udevadm trigger
 
 ========================================================
-bash history in case
-
-sudo apt search synclient
-synclient
-synclient -l
-synclient -v
-synclient CoastingSpeed=60
-syndaemon
-synclient
-snap
-systemd
-synclient
-synclient VertScrollDelta=20 HorizScrollDelta=20
-synclient
-synclient VertScrollDelta=-20 HorizScrollDelta=20
-synclient VertScrollDelta=-120 HorizScrollDelta=120
-synclient VertScrollDelta=-320 HorizScrollDelta=320
-sudo apt search gir1.2-clutter-1.0
-sudo apt install gir1.2-clutter-1.0
-sudo apt remove gir1.2-clutter-1.0
-sudo apt search openvpn
-openvpn
-lspci -knn | grep Net -A3; lsusb
-dmesg | grep -i blue
-uname -r
-snap list
-apt serch tlp
-sudo apt search tlp
-sudo apt install tlp
-sudo apt search remmina
-snap search remmina
-snap list
-sudo apt search tor
-sudo apt search tor-browser
-sudo apt search tor | grep browser
-sudo apt search tor
-sudo apt search torbrow
-sudo apt install torbrowser-launcher
-sudo apt search exodus
-guesture
-gesture
-sudo apt search gesture
-sudo gpasswd -a $USER input 
-sudo apt search libinput-g
-sudo apt-get install xdotool wmctrl
-sudo apt-get install libinput-tools
-git clone https://github.com/bulletmark/libinput-gestures.git
-sudo apt install git
-git clone https://github.com/bulletmark/libinput-gestures.git
-cd libinput-gestures/
-sudo make install 
-libinput-gestures-setup autostart
-libinput-gestures-setup start
-cd .config/
-pactl list | grep -Pzo '.*bluez_card(.*\n)*'
-pactl set-port-latency-offset bluez_card.08_DF_1F_53_AE_C0 speaker-output 50000
-pactl
-pactl list | grep -Pzo '.*bluez_card(.*\n)*'
-pactl set-port-latency-offset bluez_card.08_DF_1F_53_AE_C0 headphone-output 50000
-sudo service bluetooth restart
-pactl list | grep -Pzo '.*bluez_card(.*\n)*'
-sudo apt install blueman
-pactl set-port-latency-offset bluez_card.08_DF_1F_53_AE_C0 headphone-output 0
-sudo service bluetooth restart
-screenfetch
-sudo apt install screenfetch
-screenfetch
-htop
-sudo apt search libinput
-pactl list | grep -Pzo '.*bluez_card(.*\n)*'
-sudo apt search pulse
-htop
-exit
-shell
-.
-bash
-zsh
-sudo apt install zsh zsh-syntax-highlighting
-wget https://github.com/ChrisTitusTech/zsh/raw/master/.zshrc -O ~/.zshrc
-mkdir -p "$HOME/.zsh"
-wget https://github.com/ChrisTitusTech/zsh/raw/master/.zsh/aliasrc -O ~/.zsh/aliasrc
-zsh
-
-=========================================================================================
-
-bash history from gaming pc
-bla blab lab
-bla blab lab
-
-sudo apt install gnome-tweaks
-sudo apt update
-sudo apt install steam
-sudo apt install -y steam
-sudo apt install xboxdrv
-xboxdrv
-sudo apt install -y vim
-sudo vim /etc/modprobe.d/blacklist.conf 
-sudo apt install sysfsutils 
-sudo vim /etc/sysfs.conf 
-sudo systemctl enable xboxdrv.service
-xboxdrv
-lsusb
-sudo apt search bluetooth
-sudo apt search bluetooth | more
-/etc/init.d/bluetooth status
-sudo systemctl enable xboxdrv.service
-sudo vim /etc/sysfs.conf 
-reboot
-sudo apt install -y vlc
-top
-screenfetch
-popfetch
-sudo apt install screenfetch
-screenfetch 
-uname -a
-cat /proc/sys/vm/swappiness 
-sudo apt install -y ubuntu-restricted-extras ubuntu-restricted-addons 
-zsh
-sudo apt install -y zsh
-zsh
-sudo apt install -y python3 python3-gi python3-pyudev python3-evdev gettext meson appstream-util desktop-file-utils 
-git
-git clone https://github.com/berarma/oversteer.git
-cd oversteer/
-ls
-meson build
-ninja -C build
-ninja -C build run
-cd ~/.local/share
-ls
-reboot
-htop
-sudo apt install -y htop
-htop
-ps
-top
-cd ~
-ls
-cd .local/
-ls
-cd share/
-dir
-cd Steam/
-ls
-cd userdata/
-ls
-cd ..
-cd userdata/
-dir
-cd 444766927/
-ls
-cd 421020/remote/
-ls
-cd \
-cd "/home/walchst/.steam/debian-installation/steamapps/common/DiRT 4/share/udev"
-ls
-ls -a
-sudo cp 99-fanatec-wheel-perms.rules /etc/udev/rules.d/
-ls /etc/udev/rules.d/
-sudo udevadm control --reload-rules && sudo udevadm trigger 
-cd ~
-ls
-cat .bash_history 
-sudo apt search solaar
-ifconfig
-cd ~
-ls
-pwd
-git clone https://github.com/medusalix/xow.git
-cd xow/
-ls
-cat README.md 
-zsh
-sudo apt search libusb-1.0.0-dev
-sudo apt search libusb-1.0.0
-sudo apt install libusb-1.0.0-dev
-sudo apt install libusb-1.0-0-dev
-sudo apt install libusb-1.0-0
-ls
-make BUILD=RELEASE
-ls | grep xow
-sudo make install
-sudo systemctl start xow.service 
-.xow
-./xow 
-sudo ./xow 
-restart
-ls
-cd xow/
-ls
-./xow 
-sudo systemctl enable xboxdrv.service
-sudo vim /etc/sysfs.conf 
 
 
