@@ -108,6 +108,9 @@ gsettings set org.gnome.settings-daemon.plugins.color night-light-temperature 37
 # Battery percentage
 gsettings set org.gnome.desktop.interface show-battery-percentage true
 
+# Trackpad
+gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
+
 # Firefox
 about:config
 Search for full-screen-api.warning.timeout and set the value from 3000 to 0
