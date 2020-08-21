@@ -44,7 +44,8 @@ ssh-keygen -t rsa -b 4096 -C $(hostname) # or do via applet
 cd ~
 git clone git@github.com:walchst/.dotfiles.git
 cd .dotfiles
-stow -nvSt ~ * # had to rm ~.bashrc
+rm ~/.bashrc # conflicts with stow initially
+stow -nvSt ~ * # error with README.MD, investigate how to exclude using *
 
 # VIM specific
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -53,16 +54,19 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 
 ============================================================================
 # Gnome config
+gsettings list-recursively | grep bla
 
 # Changes pending
  - CAPS lock key behaviour - - Additional Layout options | CAPS lock behaviour | Make unmodified CAPS lock and additional Esc...
- - Automatic brightness?
- - keyboard brightness?
+ - Automatic brightness disabled
+ - keyboard brightness max
+ - blank screen 10 mins
 
 # Disable indenting - possibly remove, using alacritty
 #gsettings set org.gnome.gedit.preferences.editor auto-indent false
+
 # Colour scheme
-#gsettings set org.gnome.gedit.preferences.editor scheme 'cobalt'
+gsettings set org.gnome.gedit.preferences.editor scheme 'cobalt'
 
 # Theme
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
@@ -74,9 +78,6 @@ gsettings set org.gnome.desktop.peripherals.keyboard delay 300
 
 # Pointer
 gsettings set org.gnome.desktop.interface locate-pointer true
-
-# Trackpad
-org.gnome.desktop.peripherals.touchpad natural-scroll true
 
 # Weekday
 gsettings set org.gnome.desktop.interface clock-show-weekday true
@@ -90,17 +91,6 @@ gsettings set org.gnome.settings-daemon.plugins.color night-light-temperature 37
 
 # Battery percentage
 gsettings set org.gnome.desktop.interface show-battery-percentage true
-
-# Power settings for display
- - Settings, Power automatic brightness: disable
- - Settings, Power, blank screen: 10 mins
-
-# Disable High DPI daemon
-gsettings set com.system76.hidpi enable false
-
-# Extensions for consideration
-gnome-extensions disable pop-shell@system76.com
-gnome-extensions disable desktop-icons@csoriano
 
 # Firefox
 about:config
