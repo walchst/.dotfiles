@@ -41,6 +41,9 @@ sudo apt install nvidia-driver
 # Install bits and pieces
 sudo apt install -y vim vlc neofetch git htop stow synaptic curl mlocate iperf cifs-utils
 
+# laptop
+sudo apt install tlp
+
 # git SSH key
 ssh-keygen -t rsa -b 4096 -C $(hostname) # or do via applet
  - import public key into github
