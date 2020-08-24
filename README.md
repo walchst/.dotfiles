@@ -1,13 +1,13 @@
-# Set hostname
-sudo hostnamectl set-hostname debook
+# Set hostname, not req'd part of install
+#sudo hostnamectl set-hostname debook
 
 # Update sudoers
 su
-nano /etc/sudoers
+vi /etc/sudoers
 # duplicate %sudo line, replace with username 
 
 # Reduce boot time
-sudo nano /etc/default/grub
+sudo vi /etc/default/grub
  - set GRUB_TIMEOUT to 0:
 sudo update-grub
 
@@ -21,54 +21,9 @@ sudo update-grub
 sudo apt update 
 sudo apt upgrade -y
 
-# Clear out gnome-crap
-sudo apt -y remove gnome-games libreoffice* rhythmbox cheese evolution transmission* xterm gnome-calendar gnome-contacts gnome-music gnome-todo gnome-sound-recorder gnome-maps totem*
-sudo apt clean
-sudo apt -y autoremove
-
-# Build essentials
-sudo apt install -y build-essential dkms linux-headers-$(uname -r)
-
-# Restricted extras
-sudo apt install -y ttf-mscorefonts-installer rar unrar libavcodec-extra gstreamer1.0-libav gstreamer1.0-plugins-ugly gstreamer1.0-vaapi
-
-# Nvidia
-sudo apt install nvidia-detect
-sudo nvidia-detect
-sudo apt install nvidia-driver
-
-# Install bits and pieces
-sudo apt install -y vim vlc neofetch git htop stow synaptic curl mlocate iperf cifs-utils
-
-# laptop
-sudo apt install tlp
-
-# git SSH key
-ssh-keygen -t rsa -b 4096 -C $(hostname) # or do via applet
- - import public key into github
-
-# .dotfiles
-cd ~
-git clone git@github.com:walchst/.dotfiles.git
-cd .dotfiles
-rm ~/.bashrc # conflicts with stow initially
-stow -nvSt ~ * # error with README.MD, investigate how to exclude using *
-
-# VIM specific
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
- - open VIM and type :PluginInstall
-
-# Configure Swappiness
-cat /proc/sys/vm/swappiness
-sudo vim /etc/sysctl.conf
- - add the following to EOF
-vm.swappiness = 10
-
 ============================================================================
-
 # Gnome config
-gsettings list-recursively | grep bla
+ - use 'gsettings list-recursively | grep bla'
 
 # Changes pending
  - CAPS lock key behaviour - - Additional Layout options | CAPS lock behaviour | Make unmodified CAPS lock and additional Esc...
@@ -77,9 +32,6 @@ gsettings list-recursively | grep bla
  - blank screen 10 mins
  - terminal shortcut T
  - close app shortcut Q
-
-# Disable indenting - possibly remove, using alacritty
-#gsettings set org.gnome.gedit.preferences.editor auto-indent false
 
 # Colour scheme
 gsettings set org.gnome.gedit.preferences.editor scheme 'cobalt'
@@ -108,24 +60,63 @@ gsettings set org.gnome.settings-daemon.plugins.color night-light-temperature 37
 # Battery percentage
 gsettings set org.gnome.desktop.interface show-battery-percentage true
 
-# Trackpad
+# Trackpad / mouse
 gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
+gsettings set org.gnome.desktop.peripherals.mouse natural-scroll true # desktop uses mouse config for logitech
 
 # Firefox
 about:config
-Search for full-screen-api.warning.timeout and set the value from 3000 to 0
-Search for browser.ctrlTab.recentlyUsedOrder and set the value to false
+ - search for full-screen-api.warning.timeout and set the value from 3000 to 0
+ - search for browser.ctrlTab.recentlyUsedOrder and set the value to false
+
+=====================
+# Software installs
+=====================
+
+# Build essentials
+sudo apt install -y build-essential dkms linux-headers-$(uname -r)
+
+# Restricted extras
+sudo apt install -y ttf-mscorefonts-installer rar unrar libavcodec-extra gstreamer1.0-libav gstreamer1.0-plugins-ugly gstreamer1.0-vaapi
+
+# Install bits and pieces
+sudo apt install -y vim vlc neofetch git htop stow synaptic curl mlocate iperf cifs-utils
+
+# git SSH key
+ssh-keygen -t rsa -b 4096 -C $(hostname) # or do via applet
+ - import public key into github
 
 ====================
 # laptop
 ====================
-sudo apt install -y gimp openvpn torbrowser-launcher blueman rclone rclone-browser telegram-desktop signal-desktop remmina
- - exodus, syncient, PlexAmp appimage from plex
+sudo apt install tlp -y gimp openvpn torbrowser-launcher blueman rclone rclone-browser telegram-desktop signal-desktop remmina
+ - others: exodus, syncient, PlexAmp appimage from plex
 
-------------------------------------------------
+====================
+# desktop
+====================
+sudo apt install nvidia-detect sysfsutils openssh-server
+sudo nvidia-detect
+sudo apt install nvidia-driver
 
-# Plexamp
- - download manually - create shortcut to appimage file?
+---------------------------------------------------------------------------------
+
+# .dotfiles
+cd ~
+git clone git@github.com:walchst/.dotfiles.git
+cd .dotfiles
+rm ~/.bashrc # conflicts with stow initially
+stow -nvSt ~ * # error with README.MD, investigate how to exclude using *
+
+# VIM specific
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+ - open VIM and type :PluginInstall
+
+# Configure Swappiness
+sudo vim /etc/sysctl.conf
+ - add the following to EOF and cat /proc/sys/vm/swappiness to confirm
+vm.swappiness = 10
 
 # keyboard Fn behaviour on Macbook
 # https://help.ubuntu.com/community/AppleKeyboard#Change_Function_Key_behavior
@@ -136,8 +127,7 @@ sudo reboot
 ====================
 # desktop
 ====================
-sudo apt install -y steam sysfsutils openssh-server
-gsettings set org.gnome.desktop.peripherals.mouse natural-scroll true # desktop uses mouse config
+sudo apt install -y steam 
 
 # keyboard Fn behaviour for Logitech Wireless keyboard
 - open Solaar and change Fn behaviour
@@ -172,6 +162,15 @@ sudo systemctl kill -s SIGUSR1 xow
 # Post installing Dirt 4
 sudo cp /mnt/data/steam/steamapps/common/DiRT 4/share/udev/99-fanatec-wheel-perms.rules /etc/udev/rules.d/
 sudo udevadm control --reload-rules && sudo udevadm trigger
+
+========================
+# Post clean-up
+========================
+
+# Clear out Gnome recommended software
+sudo apt -y remove gnome-games libreoffice* rhythmbox cheese evolution transmission* xterm gnome-calendar gnome-contacts gnome-music gnome-todo gnome-sound-recorder gnome-maps totem*
+sudo apt clean
+sudo apt -y autoremove
 
 ========================================================
 
