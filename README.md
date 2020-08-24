@@ -22,10 +22,9 @@ sudo apt update
 sudo apt upgrade -y
 
 # Clear out gnome-crap
-sudo apt remove gnome-games libreoffice* rhythmbox cheese evolution transmission* xterm gnome-calendar gnome-contacts gnome-music gnome-todo gnome-sound-recorder gnome-maps totem*
-#sudo apt install -y install gnome-core
+sudo apt -y remove gnome-games libreoffice* rhythmbox cheese evolution transmission* xterm gnome-calendar gnome-contacts gnome-music gnome-todo gnome-sound-recorder gnome-maps totem*
 sudo apt clean
-sudo apt autoremove
+sudo apt -y autoremove
 
 # Build essentials
 sudo apt install -y build-essential dkms linux-headers-$(uname -r)
@@ -67,6 +66,7 @@ sudo vim /etc/sysctl.conf
 vm.swappiness = 10
 
 ============================================================================
+
 # Gnome config
 gsettings list-recursively | grep bla
 
@@ -122,6 +122,8 @@ Search for browser.ctrlTab.recentlyUsedOrder and set the value to false
 sudo apt install -y gimp openvpn torbrowser-launcher blueman rclone rclone-browser telegram-desktop signal-desktop remmina
  - exodus, syncient, PlexAmp appimage from plex
 
+------------------------------------------------
+
 # Plexamp
  - download manually - create shortcut to appimage file?
 
@@ -132,9 +134,10 @@ sudo update-initramfs -u -k all
 sudo reboot
 
 ====================
-# Gaming
+# desktop
 ====================
 sudo apt install -y steam sysfsutils openssh-server
+gsettings set org.gnome.desktop.peripherals.mouse natural-scroll true # desktop uses mouse config
 
 # keyboard Fn behaviour for Logitech Wireless keyboard
 - open Solaar and change Fn behaviour
