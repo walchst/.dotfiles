@@ -89,8 +89,8 @@ ssh-keygen -t rsa -b 4096 -C $(hostname) # or do via applet
 ====================
 # laptop
 ====================
-sudo apt install tlp -y gimp openvpn torbrowser-launcher blueman rclone rclone-browser telegram-desktop signal-desktop remmina
- - others: exodus, syncient, PlexAmp appimage from plex
+sudo apt install -y tlp gimp openvpn torbrowser-launcher blueman rclone rclone-browser telegram-desktop remmina
+ - others: exodus, syncient, signal-desktop, PlexAmp appimage from plex
 
 ====================
 # desktop
