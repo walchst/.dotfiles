@@ -102,11 +102,9 @@ sudo apt install nvidia-driver
 ---------------------------------------------------------------------------------
 
 # .dotfiles
-cd ~
-git clone git@github.com:walchst/.dotfiles.git
-cd .dotfiles
+git clone git@github.com:walchst/.dotfiles.git ~/.dotfiles
 rm ~/.bashrc # conflicts with stow initially
-stow -nvSt ~ * # error with README.MD, investigate how to exclude using *
+stow -nvSt ~ lacritty bash git htop retroarch vim # error with README.MD, investigate how to exclude using *
 
 # VIM specific
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
