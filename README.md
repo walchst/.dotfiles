@@ -142,6 +142,7 @@ sudo mkdir /mnt/roms
 sudo vim /etc/fstab
 # add the following
 //unraid/roms /mnt/roms cifs username=roms,password=roms,uid=1000,gid=1000 0 0
+sudo mount -a # to mount without restart
 
 # Bluetooth for XBox contollers
 Add the following at the end of /etc/sysfs.conf
