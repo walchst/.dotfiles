@@ -127,6 +127,9 @@ sudo reboot
 ====================
 sudo apt install -y steam 
 
+# fix nvidia libGL.so.1 fatal error failed to load steamui.so 
+sudo apt install -y libgl1-nvidia-glvnd-glx:i386
+
 # keyboard Fn behaviour for Logitech Wireless keyboard
 - open Solaar and change Fn behaviour
 
