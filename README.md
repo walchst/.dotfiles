@@ -89,7 +89,7 @@ ssh-keygen -t rsa -b 4096 -C $(hostname) # or do via applet
 ====================
 # laptop
 ====================
-sudo apt install -y tlp gimp openvpn torbrowser-launcher blueman rclone rclone-browser telegram-desktop remmina
+sudo apt install -y tlp gimp openvpn torbrowser-launcher blueman rclone rclone-browser telegram-desktop remmina firmware-misc-nonfre
  - others: exodus, syncient, signal-desktop, PlexAmp appimage from plex
 
 ====================
@@ -140,7 +140,7 @@ sudo mkdir /mnt/roms
 #sudo mount -t cifs -o username=walchst,uid=$(id -u),gid=$(id -g) //unraid/roms /mnt/roms
 sudo vim /etc/fstab
 # add the following
-//unraid/roms /mnt/roms cifs username=roms,password=roms,uid=1000,gid=1000 0 0
+//unraid/roms /mnt/roms cifs username=roms,password=roms,vers=1.0,uid=1000,gid=1000 0 0
 
 # Bluetooth for XBox contollers
 Add the following at the end of /etc/sysfs.conf
