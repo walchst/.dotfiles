@@ -98,6 +98,7 @@ sudo apt install -y tlp gimp openvpn torbrowser-launcher blueman rclone rclone-b
 sudo apt install nvidia-detect sysfsutils openssh-server
 sudo nvidia-detect
 sudo apt install nvidia-driver
+flatpak install -y com.leinardi.gwe # Nvidia Green with Envy
 
 ---------------------------------------------------------------------------------
 
