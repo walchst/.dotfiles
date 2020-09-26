@@ -80,7 +80,7 @@ sudo apt install -y build-essential dkms linux-headers-$(uname -r)
 sudo apt install -y ttf-mscorefonts-installer rar unrar libavcodec-extra gstreamer1.0-libav gstreamer1.0-plugins-ugly gstreamer1.0-vaapi
 
 # Install bits and pieces
-sudo apt install -y vim vlc neofetch git htop stow synaptic curl mlocate iperf cifs-utils hardinfo
+sudo apt install -y vim vlc neofetch git htop stow synaptic curl mlocate iperf cifs-utils hardinfo tmux
 
 # git SSH key
 ssh-keygen -t rsa -b 4096 -C $(hostname) # or do via applet
