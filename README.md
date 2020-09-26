@@ -177,4 +177,9 @@ sudo apt -y autoremove
 
 ========================================================
 
+# Retroarch
+Issue: Sound clipping, video jerky
+Fix: Settings | Video | Syncronization | Sync to Exact Content Framerate )G-Sync, FreeSynd): On
+
+Video: Vulkan
 
