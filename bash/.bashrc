@@ -120,3 +120,7 @@ if ! shopt -oq posix; then
 fi
 
 neofetch --disable gpu
+
+if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+        tmux attach -t default || tmux new -s default
+fi
