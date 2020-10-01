@@ -7,11 +7,6 @@ su
 vi /etc/sudoers
 # duplicate %sudo line, replace with username 
 
-# Reduce boot time
-sudo vi /etc/default/grub
- - set GRUB_TIMEOUT to 0:
-sudo update-grub
-
 # Enable disk write cache (if physical)
 - manually made via Disks applet # not req'd on gaming PC, SSD?
 
