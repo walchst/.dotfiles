@@ -1,4 +1,3 @@
-# TESTING
 
 # Set hostname, not req'd part of install
 #sudo hostnamectl set-hostname debook
