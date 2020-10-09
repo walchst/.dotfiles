@@ -1,31 +1,11 @@
 
-# Set hostname, not req'd part of install
-#sudo hostnamectl set-hostname debook
-
-# Update sudoers
-su
-vi /etc/sudoers
-# duplicate %sudo line, replace with username 
-
-# Enable disk write cache (if physical)
-- manually made via Disks applet # not req'd on gaming PC, SSD?
-
 ============================================================================
-
-# Firefox
-about:config
- - search for full-screen-api.warning.timeout and set the value from 3000 to 0
- - search for browser.ctrlTab.recentlyUsedOrder and set the value to false
 
 # git SSH key
 ssh-keygen -t rsa -b 4096 -C $(hostname) # or do via applet
  - import public key into github
 
----------------------------------------------------------------------------------
-
 # VIM specific
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
  - open VIM and type :PluginInstall
 
 ====================
@@ -33,7 +13,6 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 ====================
 
 # Emulation
-sudo mkdir /mnt/roms
 #sudo mount -t cifs -o username=walchst,uid=$(id -u),gid=$(id -g) //unraid/roms /mnt/roms
 sudo vim /etc/fstab
 # add the following
